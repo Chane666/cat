@@ -16,18 +16,12 @@ canvas{display:block}
 <script>
 var GW=480,GH=720;
 
-// 用原生 Canvas 2D 生成纹理（100% 可靠）
-function makeTexture(scene, key, drawFn, w, h){
-  var c = document.createElement("canvas");
-  c.width = w;
-  c.height = h;
-  var ctx = c.getContext("2d");
-  drawFn(ctx, w, h);
-  scene.textures.addCanvas(key, c);
-}
-
 var S_Boot = {
-  preload: function(){},
+  preload: function(){
+    this.load.image('player', 'player.png');
+    this.load.image('obs', 'obs.png');
+    this.load.image('coin', 'coin.png');
+  },
   create: function(){
     var me = this;
 
